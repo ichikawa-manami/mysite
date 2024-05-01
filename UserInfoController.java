@@ -54,4 +54,22 @@ public class UserInfoController {
         model.addAttribute("userAddRequest", new UserAddRequest());
         return "user/add";
     }
+   /**
+     * ユーザー編集画面を表示
+     * @param id ユーザーID
+     * @param model Model
+     * @return ユーザー編集画面
+     */
+    @GetMapping("/user/{id}/edit")
+    public String displayEdit(@PathVariable Long id, Model model) {
+        UserInfo user = userInfoService.findById(id);
+        UserUpdateRequest userUpdateRequest = new UserUpdateRequest();
+        userUpdateRequest.setId(user.getId());
+        userUpdateRequest.setId(user.getId());
+        userUpdateRequest.setName(user.getName());
+        userUpdateRequest.setPhone(user.getPhone());
+        userUpdateRequest.setAddress(user.getAddress());
+        model.addAttribute("userUpdateRequest", userUpdateRequest);
+        return "user/edit";
+    }
 }
