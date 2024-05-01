@@ -84,5 +84,16 @@ public class UserInfoController {
         model.addAttribute("userlist", userList);
         return "user/search";
     }
-
+   /**
+     * ユーザー情報削除（論理削除）
+     * @param id ユーザーID
+     * @param model Model
+     * @return ユーザー情報一覧画面
+     */
+    @GetMapping("/user/{id}/delete")
+    public String delete(@PathVariable Long id, Model model) {
+        // ユーザー情報の削除
+        userInfoService.delete(id);
+        return "redirect:/user/list";
+    }
 }
