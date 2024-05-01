@@ -117,4 +117,24 @@ public class UserInfoController {
         userInfoService.save(userRequest);
         return "redirect:/user/list";
     }
+   /**
+     * ユーザー更新
+     * @param userRequest リクエストデータ
+     * @param model Model
+     * @return ユーザー情報詳細画面
+     */
+    @RequestMapping(value = "/user/update", method = RequestMethod.POST)
+    public String update(@Validated @ModelAttribute UserUpdateRequest userUpdateRequest, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            List<String> errorList = new ArrayList<String>();
+            for (ObjectError error : result.getAllErrors()) {
+                errorList.add(error.getDefaultMessage());
+            }
+            model.addAttribute("validationError", errorList);
+            return "user/edit";
+        }
+        // ユーザー情報の更新
+        userInfoService.update(userUpdateRequest);
+        return "redirect:/user/list";
+    }
 }
