@@ -26,6 +26,23 @@ import com.example.mybatis.service.UserInfoService;
  */
 @Controller
 public class UserInfoController {
+  /**
+     * ユーザー情報 Service
+     */
+    @Autowired
+    private UserInfoService userInfoService;
 
+    /**
+     * ユーザー情報一覧画面を表示
+     * @param model Model
+     * @return ユーザー情報一覧画面
+     */
+    @GetMapping(value = "/user/list")
+    public String displayList(Model model) {
+        List<UserInfo> userList = userInfoService.findAll();
+        model.addAttribute("userlist", userList);
+        model.addAttribute("userSearchRequest", new UserSearchRequest());
+        return "user/search";
+    }
 
 }
