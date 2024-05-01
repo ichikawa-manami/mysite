@@ -96,4 +96,25 @@ public class UserInfoController {
         userInfoService.delete(id);
         return "redirect:/user/list";
     }
+   /**
+     * ユーザー新規登録
+     * @param userRequest リクエストデータ
+     * @param model Model
+     * @return ユーザー情報一覧画面
+     */
+    @RequestMapping(value = "/user/create", method = RequestMethod.POST)
+    public String create(@Validated @ModelAttribute UserAddRequest userRequest, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            // 入力チェックエラーの場合
+            List<String> errorList = new ArrayList<String>();
+            for (ObjectError error : result.getAllErrors()) {
+                errorList.add(error.getDefaultMessage());
+            }
+            model.addAttribute("validationError", errorList);
+            return "user/add";
+        }
+        // ユーザー情報の登録
+        userInfoService.save(userRequest);
+        return "redirect:/user/list";
+    }
 }
