@@ -72,4 +72,17 @@ public class UserInfoController {
         model.addAttribute("userUpdateRequest", userUpdateRequest);
         return "user/edit";
     }
+   /**
+     * ユーザー情報検索
+     * @param userSearchRequest リクエストデータ
+     * @param model Model
+     * @return ユーザー情報一覧画面
+     */
+    @RequestMapping(value = "/user/search", method = RequestMethod.POST)
+    public String search(@ModelAttribute UserSearchRequest userSearchRequest, Model model) {
+        List<UserInfo> userList = userInfoService.search(userSearchRequest);
+        model.addAttribute("userlist", userList);
+        return "user/search";
+    }
+
 }
