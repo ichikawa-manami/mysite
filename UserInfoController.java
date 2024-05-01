@@ -44,5 +44,14 @@ public class UserInfoController {
         model.addAttribute("userSearchRequest", new UserSearchRequest());
         return "user/search";
     }
-
+  /**
+     * ユーザー新規登録画面を表示
+     * @param model Model
+     * @return ユーザー情報一覧画面
+     */
+    @GetMapping(value = "/user/add")
+    public String displayAdd(Model model) {
+        model.addAttribute("userAddRequest", new UserAddRequest());
+        return "user/add";
+    }
 }
