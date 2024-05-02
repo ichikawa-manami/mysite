@@ -64,4 +64,12 @@ public class UserInfoService {
         userInfoMapper.update(userUpdateRequest);
     }    
 
+        /**
+     * ユーザー情報論理削除
+     * @param id
+     */
+    public void delete(Long id) {
+        userInfoMapper.delete(id);
+    }
+    
 }
