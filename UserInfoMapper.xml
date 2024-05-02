@@ -37,5 +37,10 @@
         VALUES
             (#{name}, #{address}, #{phone}, CURRENT_TIMESTAMP,  CURRENT_TIMESTAMP)
     </insert>
-  
+
+            <!-- 更新 -->
+    <update id="update">
+        UPDATE userinfo SET name = #{name}, address = #{address}, phone = #{phone}, update_date = CURRENT_TIMESTAMP WHERE id = #{id}
+    </update>
+        
 </mapper>
