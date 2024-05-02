@@ -41,5 +41,11 @@ public interface UserInfoMapper {
      * @param userRequest 登録用リクエストデータ
      */
     void save(UserAddRequest userRequest);
+
+        /**
+     * ユーザー情報更新
+     * @param userUpdateRequest 更新用リクエストデータ
+     */
+    void update(UserUpdateRequest userUpdateRequest);
    
 }
