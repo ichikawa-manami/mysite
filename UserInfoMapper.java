@@ -47,5 +47,11 @@ public interface UserInfoMapper {
      * @param userUpdateRequest 更新用リクエストデータ
      */
     void update(UserUpdateRequest userUpdateRequest);
-   
+
+        /**
+     * ユーザー情報の論理削除
+     * @param id ID
+     */
+    void delete(Long id);
+    
 }
