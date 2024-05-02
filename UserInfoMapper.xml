@@ -42,5 +42,10 @@
     <update id="update">
         UPDATE userinfo SET name = #{name}, address = #{address}, phone = #{phone}, update_date = CURRENT_TIMESTAMP WHERE id = #{id}
     </update>
+
+            <!-- 論理削除 -->
+    <update id="delete">
+        UPDATE userinfo SET delete_date = CURRENT_TIMESTAMP WHERE id = #{id}
+    </update>
         
 </mapper>
