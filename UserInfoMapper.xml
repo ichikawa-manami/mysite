@@ -29,6 +29,13 @@
                 AND name LIKE CONCAT('%', #{name}, '%')
             </if>
     </select>
-
+        
+   <!-- 新規登録 -->
+    <insert id="save">
+        INSERT INTO userInfo
+            (name, address, phone, update_date, create_date)
+        VALUES
+            (#{name}, #{address}, #{phone}, CURRENT_TIMESTAMP,  CURRENT_TIMESTAMP)
+    </insert>
   
 </mapper>
