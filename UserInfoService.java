@@ -56,4 +56,12 @@ public class UserInfoService {
         userInfoMapper.save(userAddRequest);
     }
 
+    /**
+     * ユーザ情報更新
+     * @param userEditRequest リクエストデータ
+     */
+    public void update(UserUpdateRequest userUpdateRequest) {
+        userInfoMapper.update(userUpdateRequest);
+    }    
+
 }
