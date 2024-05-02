@@ -1,0 +1,40 @@
+package com.example.mybatis.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import com.example.mybatis.dto.UserAddRequest;
+import com.example.mybatis.dto.UserSearchRequest;
+import com.example.mybatis.dto.UserUpdateRequest;
+import com.example.mybatis.entity.UserInfo;
+
+/**
+ * ユーザー情報 Mapper
+ */
+@Mapper
+public interface UserInfoMapper {
+
+    /**
+     * ユーザー情報全件検索
+     * @param user 検索用リクエストデータ
+     * @return 検索結果
+     */
+    List<UserInfo> findAll();
+  
+   /**
+     * ユーザー情報主キー検索
+     * @param id 主キー
+     * @return 検索結果
+     */
+    UserInfo findById(Long id);
+
+    /**
+     * ユーザー情報検索
+     * @param user 検索用リクエストデータ
+     * @return 検索結果
+     */
+    List<UserInfo> search(UserSearchRequest user);
+
+   
+}
