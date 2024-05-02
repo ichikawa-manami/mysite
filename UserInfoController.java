@@ -26,8 +26,7 @@ import com.example.mybatis.service.UserInfoService;
  */
 @Controller
 public class UserInfoController {
-
-    /**
+  /**
      * ユーザー情報 Service
      */
     @Autowired
@@ -45,8 +44,7 @@ public class UserInfoController {
         model.addAttribute("userSearchRequest", new UserSearchRequest());
         return "user/search";
     }
-
-    /**
+  /**
      * ユーザー新規登録画面を表示
      * @param model Model
      * @return ユーザー情報一覧画面
@@ -56,8 +54,7 @@ public class UserInfoController {
         model.addAttribute("userAddRequest", new UserAddRequest());
         return "user/add";
     }
-
-    /**
+   /**
      * ユーザー編集画面を表示
      * @param id ユーザーID
      * @param model Model
@@ -75,8 +72,7 @@ public class UserInfoController {
         model.addAttribute("userUpdateRequest", userUpdateRequest);
         return "user/edit";
     }
-
-    /**
+   /**
      * ユーザー情報検索
      * @param userSearchRequest リクエストデータ
      * @param model Model
@@ -88,8 +84,7 @@ public class UserInfoController {
         model.addAttribute("userlist", userList);
         return "user/search";
     }
-
-    /**
+   /**
      * ユーザー情報削除（論理削除）
      * @param id ユーザーID
      * @param model Model
@@ -101,8 +96,7 @@ public class UserInfoController {
         userInfoService.delete(id);
         return "redirect:/user/list";
     }
-
-    /**
+   /**
      * ユーザー新規登録
      * @param userRequest リクエストデータ
      * @param model Model
@@ -123,8 +117,7 @@ public class UserInfoController {
         userInfoService.save(userRequest);
         return "redirect:/user/list";
     }
-
-    /**
+   /**
      * ユーザー更新
      * @param userRequest リクエストデータ
      * @param model Model
